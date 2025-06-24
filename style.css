@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Style for active state (both mouse and keyboard) */
+.key.active {
+    background: cornflowerblue !important;
+}
+
+/* Style for mouse click active state */
+.key:active {
+    background: cornflowerblue !important;
+}
+
+/* Ensure white keys with active class stay white */
+.key.white.active {
+    color: black !important;
+}
+
+/* Ensure black keys with active class stay white */
+.key.black.active {
+    color: white !important;
+}
+
+.black-keys, .white-keys {
+    display: flex;
+    align-items: center;
+}
+
+.black-keys {
+    gap: 45px;
+}
+
+.white {
+    background: white;
+    color: black;
+    min-width: 50px;
+    border: 2px solid black;
+    height: 200px;
+}
+
+.black {
+    background: black;
+    color: white;
+    min-width: 30px;
+    height: 150px;
+}
