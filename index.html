@@ -1,59 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>JS MIDI Project</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="black-keys">
-                <!-- Row 3: ASDF -->
-				<div class="key black" data-key="S">S</div>
-				<div class="key black" data-key="D">D</div>
-				<div class="key black" data-key="G">G</div>
-				<div class="key black" data-key="H">H</div>
-				<div class="key black" data-key="J">J</div>
-				<div class="key black" data-key="L">L</div>
-				<div class="key black" data-key=";">;</div>
-				<!-- Row 1: Numbers -->
-				<div class="key black" data-key="2">2</div>
-				<div class="key black" data-key="3">3</div>
-                <div class="key black" data-key="4">4</div>
-				<div class="key black" data-key="6">6</div>
-				<div class="key black" data-key="7">7</div>
-				<div class="key black" data-key="9">9</div>
-				<div class="key black" data-key="0">0</div>
-				
-			</div>
-			<div class="white-keys">
-				<!-- Row 4: ZXCV -->
-				<div class="key white" data-key="Z">Z</div>
-				<div class="key white" data-key="X">X</div>
-				<div class="key white" data-key="C">C</div>
-				<div class="key white" data-key="V">V</div>
-				<div class="key white" data-key="B">B</div>
-				<div class="key white" data-key="N">N</div>
-				<div class="key white" data-key="M">M</div>
-				<div class="key white" data-key=",">,</div>
-				<div class="key white" data-key=".">.</div>
-				<div class="key white" data-key="/">/</div>
-				<!-- Row 2: QWERTY -->
-				<div class="key white" data-key="Q">Q</div>
-				<div class="key white" data-key="W">W</div>
-				<div class="key white" data-key="E">E</div>
-				<div class="key white" data-key="R">R</div>
-				<div class="key white" data-key="T">T</div>
-				<div class="key white" data-key="Y">Y</div>
-				<div class="key white" data-key="U">U</div>
-				<div class="key white" data-key="I">I</div>
-				<div class="key white" data-key="O">O</div>
-				<div class="key white" data-key="P">P</div>
-				<div class="key white" data-key="[">[</div>
-				<div class="key white" data-key="]">]</div>
-			</div>
-		</div>
-		<script src="script.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ-MIDI | Online MIDI Keyboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-music"></i> EZ-MIDI</h1>
+            <p class="tagline">EZ-MIDI is a plug-and-play MIDI-out keyboard. Just connect a MIDI-compatible device (e.g. a synthesizer) and start playing!</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="piano-container">
+            <div class="keyboard-info">
+                <div class="keyboard-legend">
+                    <span><i class="fas fa-keyboard"></i> Use your computer keyboard to play</span>
+                    <span><i class="fas fa-mouse-pointer"></i> Or click the keys with your mouse</span>
+                </div>
+                
+                <div class="controls">
+                    <button id="transpose-down-btn" class="control-btn" title="Transpose Down">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <div class="transpose-display">
+                        <span>Transpose: </span>
+                        <span id="transpose-value">0</span>
+                    </div>
+                    <button id="transpose-up-btn" class="control-btn" title="Transpose Up">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="piano-wrapper">
+                <div class="container">
+                    <div class="black-keys">
+                        <!-- Row 3: ASDF -->
+                        <div class="key black" data-key="S">S</div>
+                        <div class="key black" data-key="D">D</div>
+                        <div class="key black" data-key="G">G</div>
+                        <div class="key black" data-key="H">H</div>
+                        <div class="key black" data-key="J">J</div>
+                        <div class="key black" data-key="L">L</div>
+                        <div class="key black" data-key=";">;</div>
+                        <!-- Row 1: Numbers -->
+                        <div class="key black" data-key="2">2</div>
+                        <div class="key black" data-key="3">3</div>
+                        <div class="key black" data-key="4">4</div>
+                        <div class="key black" data-key="6">6</div>
+                        <div class="key black" data-key="7">7</div>
+                        <div class="key black" data-key="9">9</div>
+                        <div class="key black" data-key="0">0</div>
+                    </div>
+                    <div class="white-keys">
+                        <!-- Row 4: ZXCV -->
+                        <div class="key white" data-key="Z">Z</div>
+                        <div class="key white" data-key="X">X</div>
+                        <div class="key white" data-key="C">C</div>
+                        <div class="key white" data-key="V">V</div>
+                        <div class="key white" data-key="B">B</div>
+                        <div class="key white" data-key="N">N</div>
+                        <div class="key white" data-key="M">M</div>
+                        <div class="key white" data-key=",">,</div>
+                        <div class="key white" data-key=".">.</div>
+                        <div class="key white" data-key="/">/</div>
+                        <!-- Row 2: QWERTY -->
+                        <div class="key white" data-key="Q">Q</div>
+                        <div class="key white" data-key="W">W</div>
+                        <div class="key white" data-key="E">E</div>
+                        <div class="key white" data-key="R">R</div>
+                        <div class="key white" data-key="T">T</div>
+                        <div class="key white" data-key="Y">Y</div>
+                        <div class="key white" data-key="U">U</div>
+                        <div class="key white" data-key="I">I</div>
+                        <div class="key white" data-key="O">O</div>
+                        <div class="key white" data-key="P">P</div>
+                        <div class="key white" data-key="[">[</div>
+                        <div class="key white" data-key="]">]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="midi-controls">
+                <div class="midi-selector">
+                    <label for="midi-output-select">MIDI Output:</label>
+                    <select id="midi-output-select" class="midi-select">
+                        <option value="">None</option>
+                    </select>
+                </div>
+                <div class="midi-status" id="midi-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">MIDI not connected</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Clark Fannin</p>
+            <div class="social-links">
+                <a href="https://github.com/size12husky/js-midi" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
